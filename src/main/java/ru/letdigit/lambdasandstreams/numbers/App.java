@@ -25,7 +25,10 @@ public class App {
                 .toList();
 
         // 1.1 Максимальное значение
-        int maxNumber = numbers.stream().max(Integer::compareTo).orElseThrow(NoSuchElementException::new);
+        int maxNumber = numbers
+                .stream()
+                .max(Integer::compareTo)
+                .orElseThrow(NoSuchElementException::new);
         System.out.printf("Max value: %d\n", maxNumber);
 
         // 2.2 Все числа, большие, чем 500_000, умножить на 5, отнять от них 150 и просуммировать
@@ -33,7 +36,8 @@ public class App {
         int ARG_01 = 5;
         int ARG_02 = 150;
 
-        int sumOfNumbers = numbers.stream()
+        int sumOfNumbers = numbers
+                .stream()
                 .filter(x -> x > MORE_THAN_VALUE)
                 .map(x -> x * ARG_01 - ARG_02)
                 .reduce(0, Integer::sum);
@@ -43,7 +47,8 @@ public class App {
         int LESS_THEN_VALUE = 100_000;
         int EXPONENT = 2;
 
-        long lessThanAmount = numbers.stream()
+        long lessThanAmount = numbers
+                .stream()
                 .map(x -> (long) Math.pow(x, EXPONENT))
                 .filter(x -> x < LESS_THEN_VALUE)
                 .count();
