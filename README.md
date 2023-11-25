@@ -125,4 +125,4 @@ Employee{name='Petrov', age=50, salary=9600.0, department='administration'}
 Employee{name='Sidorov', age=20, salary=8400.0, department='administration'}
  */
 ```
-Директория пакета: [Package](ru/letdigit/lambdasandstreams/employees)
+Директория пакета: [Package](ru\letdigit\lambdasandstreams\employees)
