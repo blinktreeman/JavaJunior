@@ -45,6 +45,14 @@ public class App {
         System.out.println("Employees by departments: ");
         employeesByDepartment.entrySet().forEach(System.out::println);
 
+        // 2.5 * Из списка сотрудников с помощью стрима создать Map<String, Double>
+        // с отделами и средней зарплатой внутри отдела
+        Map<String, Double> averageSalaryByDepartments = Company.getEmployees()
+                .stream()
+                .collect(Collectors.groupingBy(Employee::getDepartment,
+                        Collectors.averagingDouble(Employee::getSalary)));
+        System.out.println("Average salary by departments: ");
+        averageSalaryByDepartments.entrySet().forEach(System.out::println);
     }
 }
 
@@ -75,4 +83,8 @@ Employee{name='Petrov', age=35, salary=11000.0, department='sales'},
 Employee{name='Sidorov', age=40, salary=12000.0, department='sales'},
 Employee{name='Ivanov', age=45, salary=13000.0, department='sales'}
 ]
+
+Average salary by departments:
+administration=14666.66
+sales=10500.0
  */
